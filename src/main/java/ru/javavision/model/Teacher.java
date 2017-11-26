@@ -14,6 +14,8 @@ public class Teacher implements Serializable {
 
     private int id;
 
+    private String name;
+
     private HeadDepartment headDepartment;
 
     private List<Student> students;

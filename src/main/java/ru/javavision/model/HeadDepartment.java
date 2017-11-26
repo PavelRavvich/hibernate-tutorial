@@ -14,6 +14,8 @@ public class HeadDepartment implements Serializable {
 
     private int id;
 
+    private String name;
+
     private Director director;
 
     private List<Teacher> teachers;

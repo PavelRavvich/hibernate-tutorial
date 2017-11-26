@@ -14,6 +14,8 @@ public class Student implements Serializable {
 
     private int id;
 
+    private String name;
+
     private List<Teacher> teachers;
 
 }

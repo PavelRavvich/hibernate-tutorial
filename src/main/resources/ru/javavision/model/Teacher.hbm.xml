@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
+
+    <class name="ru.javavision.model.Teacher" table="users">
+        <id name="id" column="id" type="integer">
+            <generator class="identity"/>
+        </id>
+
+        <one-to-one name="headDepartment" class="ru.javavision.model.HeadDepartment"/>
+
+        <property name="name" column="name"/>
+
+        <!--Подключение many-to-many к таблице учеников-->
+        <set name="students" table="students_to_teacher"
+             inverse="false" lazy="true" fetch="select" cascade="all" >
+            <key>
+                <!--Ключь текущей сущьности в соединительной таблице students_to_teacher-->
+                <column name="teacher_id" not-null="true" />
+            </key>
+            <!--Мапимся к целевой таблице через ее ключь в соединительной таблице-->
+            <many-to-many entity-name="ru.javavision.model.Student">
+                <column name="student_id" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
