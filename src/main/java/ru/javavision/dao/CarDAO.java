@@ -1,6 +1,7 @@
 package ru.javavision.dao;
 
 import com.sun.istack.internal.NotNull;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import ru.javavision.model.Car;
@@ -9,7 +10,7 @@ import ru.javavision.model.Car;
  * Author : Pavel Ravvich.
  * Created : 26/11/2017.
  */
-public class CarDAO implements DAO<Car, Integer> {
+public class CarDAO implements DAO<Car, String> {
     /**
      * Connection factory to database.
      */
@@ -33,13 +34,17 @@ public class CarDAO implements DAO<Car, Integer> {
     }
 
     @Override
-    public Car read(@NotNull final Integer id) {
+    public Car read(@NotNull final String model) {
 
         try (final Session session = factory.openSession()) {
 
-            final Car result = session.get(Car.class, id);
+            final Car result = session.get(Car.class, model);
 
-            return result != null ? result : new Car();
+            if (result != null) {
+                Hibernate.initialize(result.getEngine());
+            }
+
+            return result;
         }
     }
 

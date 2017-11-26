@@ -20,7 +20,11 @@ public class EngineDAO implements DAO<Engine, String> {
         this.factory = factory;
     }
 
-
+    /**
+     * Create new engine row in engines table.
+     *
+     * @param engine fof add.
+     */
     @Override
     public void create(@NotNull final Engine engine) {
         try (final Session session = factory.openSession()) {
@@ -33,6 +37,12 @@ public class EngineDAO implements DAO<Engine, String> {
         }
     }
 
+    /**
+     * Get engine by model.
+     *
+     * @param model for select.
+     * @return Engine obj with param model.
+     */
     @Override
     public Engine read(@NotNull final String model) {
         try (final Session session = factory.openSession()) {
@@ -43,6 +53,11 @@ public class EngineDAO implements DAO<Engine, String> {
         }
     }
 
+    /**
+     * Update engine state.
+     *
+     * @param engine new state.
+     */
     @Override
     public void update(@NotNull final Engine engine) {
         try (Session session = factory.openSession()) {
@@ -55,8 +70,14 @@ public class EngineDAO implements DAO<Engine, String> {
         }
     }
 
+    /**
+     * Delete engine from engines table.
+     *
+     * @param engine for delete.
+     */
     @Override
     public void delete(@NotNull final Engine engine) {
+
         try (Session session = factory.openSession()) {
 
             session.beginTransaction();
