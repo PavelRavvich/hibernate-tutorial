@@ -1,58 +1,23 @@
-CREATE DATABASE academy ENCODING 'UTF-8';
+CREATE DATABASE config_lesson ENCODING 'UTF-8';
 
-CREATE TABLE IF NOT EXISTS director (
-  id   SERIAL,
-  name VARCHAR(10),
-  PRIMARY KEY (id)
+CREATE TABLE IF NOT EXISTS engines (
+  id    SERIAL UNIQUE      NOT NULL,
+  model VARCHAR(25)        NOT NULL,
+  power INTEGER            NOT NULL,
+  PRIMARY KEY (model)
 );
 
-INSERT INTO director (id, name) VALUES (DEFAULT, 'boss');
+INSERT INTO engines (id, model, power) VALUES (DEFAULT, 'engine_model_01', 1250);
+INSERT INTO engines (id, model, power) VALUES (DEFAULT, 'engine_model_02', 2820);
 
 
-CREATE TABLE IF NOT EXISTS head_department (
-  id          SERIAL,
-  name        VARCHAR(10),
-  director_id INTEGER,
-  FOREIGN KEY (director_id) REFERENCES director (id),
-  PRIMARY KEY (id)
+CREATE TABLE IF NOT EXISTS cars (
+  id       SERIAL PRIMARY KEY,
+  mark     VARCHAR(25) NOT NULL,
+  model    VARCHAR(25) NOT NULL,
+  engin_id INTEGER     NOT NULL,
+  FOREIGN KEY (engin_id) REFERENCES engines (id)
 );
 
-INSERT INTO head_department (id, name, director_id) VALUES (DEFAULT, 'sub_boss', 1);
-
-
-CREATE TABLE IF NOT EXISTS teachers (
-  id                 SERIAL,
-  name               VARCHAR(10),
-  head_department_id INTEGER,
-  FOREIGN KEY (head_department_id) REFERENCES head_department (id),
-  PRIMARY KEY (id)
-);
-
-INSERT INTO teachers (id, name, head_department_id) VALUES (DEFAULT, 'teacher_01', 1);
-INSERT INTO teachers (id, name, head_department_id) VALUES (DEFAULT, 'teacher_02', 1);
-
-
-CREATE TABLE IF NOT EXISTS students (
-  id   SERIAL,
-  name VARCHAR(10),
-  PRIMARY KEY (id)
-);
-
-INSERT INTO students (id, name) VALUES (DEFAULT, 'student_01');
-INSERT INTO students (id, name) VALUES (DEFAULT, 'student_02');
-INSERT INTO students (id, name) VALUES (DEFAULT, 'student_03');
-
-
-CREATE TABLE IF NOT EXISTS students_to_teacher (
-  id         SERIAL,
-  student_id INTEGER,
-  teacher_id INTEGER,
-  UNIQUE (student_id, teacher_id),
-  FOREIGN KEY (student_id) REFERENCES students (id),
-  FOREIGN KEY (teacher_id) REFERENCES teachers (id),
-  PRIMARY KEY (id)
-);
-
-INSERT INTO students_to_teacher (id, student_id, teacher_id) VALUES (DEFAULT, 1, 1);
-INSERT INTO students_to_teacher (id, student_id, teacher_id) VALUES (DEFAULT, 2, 1);
-INSERT INTO students_to_teacher (id, student_id, teacher_id) VALUES (DEFAULT, 3, 1);
+INSERT INTO cars (id, mark, model, engin_id) VALUES (DEFAULT, 'car_mark_01', 'car_model_01', 1);
+INSERT INTO cars (id, mark, model, engin_id) VALUES (DEFAULT, 'car_mark_02', 'car_model_02', 2);

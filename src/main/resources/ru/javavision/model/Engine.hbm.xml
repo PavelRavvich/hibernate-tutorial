@@ -5,11 +5,9 @@
 
 <hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
 
-    <class name="ru.javavision.model.Director" table="users">
-        <id name="id" column="id" type="integer">
-            <generator class="identity"/>
-        </id>
-
-        <property name="name" column="name"/>
+    <class name="ru.javavision.model.Engine" table="engines">
+        <id name="model" column="model"/>
+        <property name="id" column="id" generated="insert"/>
+        <property name="power" column="power"/>
     </class>
 </hibernate-mapping>
