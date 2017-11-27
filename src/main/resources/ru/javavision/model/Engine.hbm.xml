@@ -7,7 +7,6 @@
 
     <class name="ru.javavision.model.Engine" table="engines">
         <id name="model" column="model"/>
-        <property name="id" column="id" generated="insert"/>
         <property name="power" column="power"/>
     </class>
 </hibernate-mapping>

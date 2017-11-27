@@ -15,8 +15,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Engine implements Serializable {
 
-    private int id;
-
     private String model;
 
     private int power;
