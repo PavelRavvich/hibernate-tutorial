@@ -19,4 +19,5 @@ public class Car implements Serializable {
 
     private Engine engine;
 
+    private int engineId;
 }
