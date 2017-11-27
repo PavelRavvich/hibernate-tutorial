@@ -38,7 +38,7 @@ public class ApplicationDemo {
             System.out.println("Updated : " + update);
             System.out.println();
 
-            engineDAO.delete(update);
+            engineDAO.delete(new Engine("engine_model_03", 54321));
 
             System.out.println("Deleted(empty obj) : " + engineDAO.read("engine_model_03"));
         } finally {

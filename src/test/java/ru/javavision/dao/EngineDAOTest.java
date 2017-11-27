@@ -67,6 +67,4 @@ public class EngineDAOTest {
         assertNotNull(before.getModel());
         assertNull(after.getModel());
     }
-
-
 }
