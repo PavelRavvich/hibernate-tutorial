@@ -9,10 +9,8 @@ import ru.javavision.model.Engine;
 /**
  * Author : Pavel Ravvich.
  * Created : 26/11/2017.
- * <p>
- * App
  */
-public class App {
+public class ApplicationDemo {
 
     public static void main(String[] args) {
 
