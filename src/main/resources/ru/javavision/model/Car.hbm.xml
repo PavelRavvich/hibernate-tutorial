@@ -15,6 +15,6 @@
         <!--Прикрепляем сущьность двигателя к таблицам.-->
         <many-to-one name="engine" column="engine_id"
                      class="ru.javavision.model.Engine"
-                     cascade="save-update" not-null="true"/>
+                     cascade="save-update, delete" />
     </class>
 </hibernate-mapping>

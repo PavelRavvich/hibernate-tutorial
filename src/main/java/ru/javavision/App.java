@@ -4,7 +4,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import ru.javavision.dao.CarDAO;
 import ru.javavision.dao.DAO;
-import ru.javavision.dao.EngineDAO;
 import ru.javavision.model.Car;
 import ru.javavision.model.Engine;
 
@@ -39,14 +38,20 @@ public class App {
 
             //dao.getAll().forEach(System.out::println);
 
+//            final Car car = new Car();
+//            car.setModel("test");
+//            car.setMark("test");
+//            final Engine engine = new Engine();
+//            engine.setPower(900);
+//            engine.setModel("test");
+//            car.setEngine(engine);
+//            dao.create(car);
             final Car car = new Car();
-            car.setModel("test");
-            car.setMark("test");
             final Engine engine = new Engine();
-            engine.setPower(900);
-            engine.setModel("test");
+            engine.setId(3);
             car.setEngine(engine);
-            dao.create(car);
+            car.setId(3);
+            dao.delete(car);
         } finally {
             if (factory != null) {
                 factory.close();
