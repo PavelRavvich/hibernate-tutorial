@@ -6,11 +6,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import ru.javavision.model.Car;
 
+import java.util.List;
+
 /**
  * Author : Pavel Ravvich.
  * Created : 26/11/2017.
  */
-public class CarDAO implements DAO<Car, String> {
+public class CarDAO implements DAO<Car, Integer> {
     /**
      * Connection factory to database.
      */
@@ -34,11 +36,11 @@ public class CarDAO implements DAO<Car, String> {
     }
 
     @Override
-    public Car read(@NotNull final String model) {
+    public Car read(@NotNull final Integer id) {
 
         try (final Session session = factory.openSession()) {
 
-            final Car result = session.get(Car.class, model);
+            final Car result = session.get(Car.class, id);
 
             if (result != null) {
                 Hibernate.initialize(result.getEngine());
@@ -71,6 +73,15 @@ public class CarDAO implements DAO<Car, String> {
             session.delete(car);
 
             session.getTransaction().commit();
+        }
+    }
+
+    private final static String GET_ALL_CARS = "select c from Car c join fetch c.engine where c.id > 0";
+
+    @Override
+    public List<Car> getAll() {
+        try (Session session = factory.openSession()) {
+            return session.createQuery(GET_ALL_CARS, Car.class).list();
         }
     }
 }

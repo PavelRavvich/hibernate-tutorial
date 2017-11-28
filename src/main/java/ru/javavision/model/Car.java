@@ -18,6 +18,4 @@ public class Car implements Serializable {
     private String model;
 
     private Engine engine;
-
-    private int engineId;
 }

@@ -6,11 +6,15 @@
 <hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
 
     <class name="ru.javavision.model.Car" table="cars">
-        <id name="mark" column="mark"/>
-        <property name="id" column="id" generated="insert"/>
+        <id name="id" column="id">
+            <generator class="identity"/>
+        </id>
+        <property name="mark" column="mark"/>
         <property name="model" column="model"/>
 
         <!--Прикрепляем сущьность двигателя к таблицам.-->
-        <one-to-one name="engine" class="ru.javavision.model.Engine" cascade="save-update" />
+        <many-to-one name="engine" column="engine_id"
+                     class="ru.javavision.model.Engine"
+                     cascade="save-update" not-null="true"/>
     </class>
 </hibernate-mapping>

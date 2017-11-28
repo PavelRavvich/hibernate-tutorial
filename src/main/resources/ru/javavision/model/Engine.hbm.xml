@@ -6,8 +6,10 @@
 <hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
 
     <class name="ru.javavision.model.Engine" table="engines">
-        <id name="model" column="model"/>
-        <property name="id" column="id" generated="insert"/>
+        <id name = "id" type = "int" column = "id">
+            <generator class="identity"/>
+        </id>
+        <property name="model" column="model"/>
         <property name="power" column="power"/>
     </class>
 </hibernate-mapping>

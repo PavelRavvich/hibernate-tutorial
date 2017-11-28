@@ -22,20 +22,20 @@ public class CarDAOTest {
     private Car testCar = new Car();
     private Engine testEngine = new Engine();
 
-    @Before
-    public void before() {
-        factory = new Configuration().configure().buildSessionFactory();
-        carDAO = new CarDAO(factory);
-        engineDAO = new EngineDAO(factory);
-        testEngine.setModel("test");
-        testEngine.setPower(1);
-        engineDAO.create(testEngine);
-        testCar.setEngine(testEngine);
-        testCar.setMark("test");
-        testCar.setModel("test");
-        final int engineId = engineDAO.read("test").getId();
-        testCar.setEngineId(engineId);
-    }
+//    @Before
+//    public void before() {
+//        factory = new Configuration().configure().buildSessionFactory();
+//        carDAO = new CarDAO(factory);
+//        engineDAO = new EngineDAO(factory);
+//        testEngine.setModel("test");
+//        testEngine.setPower(1);
+//        engineDAO.create(testEngine);
+//        testCar.setEngine(testEngine);
+//        testCar.setMark("test");
+//        testCar.setModel("test");
+//        final int engineId = engineDAO.read("test").getId();
+//        testCar.setEngineId(engineId);
+//    }
 
     @After
     public void after() {

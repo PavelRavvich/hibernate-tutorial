@@ -2,8 +2,10 @@ package ru.javavision;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import ru.javavision.dao.CarDAO;
 import ru.javavision.dao.DAO;
 import ru.javavision.dao.EngineDAO;
+import ru.javavision.model.Car;
 import ru.javavision.model.Engine;
 
 /**
@@ -21,28 +23,30 @@ public class App {
         try {
 
             factory = new Configuration().configure().buildSessionFactory();
-            DAO<Engine, String> engineDAO = new EngineDAO(factory);
+            DAO<Car, Integer> dao = new CarDAO(factory);
+//            final Car result = dao.read(1);
+//            System.out.println("Read: " + result);
+//
+//            result.setModel("car_model_03");
+//            result.getEngine().setPower(500);
+//            dao.update(result);
+//            System.out.println("Update: " + dao.read(1));
 
+
+            System.out.println();
+            System.out.println();
+            System.out.println();
+
+            //dao.getAll().forEach(System.out::println);
+
+            final Car car = new Car();
+            car.setModel("test");
+            car.setMark("test");
             final Engine engine = new Engine();
-            engine.setModel("engine_model_03");
-            engine.setPower(12345);
-
-            engineDAO.create(engine);
-
-            final Engine result = engineDAO.read("engine_model_03");
-            System.out.println("Created : " + result);
-            System.out.println();
-
-            result.setPower(54321);
-            engineDAO.update(result);
-
-            final Engine update = engineDAO.read("engine_model_03");
-            System.out.println("Updated : " + update);
-            System.out.println();
-
-            engineDAO.delete(update);
-
-            System.out.println("Deleted(empty obj) : " + engineDAO.read("engine_model_03"));
+            engine.setPower(900);
+            engine.setModel("test");
+            car.setEngine(engine);
+            dao.create(car);
         } finally {
             if (factory != null) {
                 factory.close();

@@ -5,6 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import ru.javavision.model.Engine;
 
+import java.util.List;
+
 /**
  * Author : Pavel Ravvich.
  * Created : 26/11/2017.
@@ -86,5 +88,10 @@ public class EngineDAO implements DAO<Engine, String> {
 
             session.getTransaction().commit();
         }
+    }
+
+    @Override
+    public List<Engine> getAll() {
+        return null;
     }
 }

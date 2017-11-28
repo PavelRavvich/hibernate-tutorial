@@ -1,10 +1,9 @@
-CREATE DATABASE config_lesson ENCODING 'UTF-8';
+CREATE DATABASE many_to_one_lesson ENCODING 'UTF-8';
 
 CREATE TABLE IF NOT EXISTS engines (
-  id    SERIAL UNIQUE      NOT NULL,
-  model VARCHAR(25)        NOT NULL,
-  power INTEGER            NOT NULL,
-  PRIMARY KEY (model)
+  id    SERIAL PRIMARY KEY,
+  model VARCHAR(25) NOT NULL,
+  power INTEGER     NOT NULL
 );
 
 INSERT INTO engines (id, model, power) VALUES (DEFAULT, 'engine_model_01', 1250);
@@ -12,9 +11,9 @@ INSERT INTO engines (id, model, power) VALUES (DEFAULT, 'engine_model_02', 2820)
 
 
 CREATE TABLE IF NOT EXISTS cars (
-  id        SERIAL UNIQUE,
+  id        SERIAL PRIMARY KEY,
   mark      VARCHAR(25) NOT NULL,
-  model     VARCHAR(25) PRIMARY KEY,
+  model     VARCHAR(25) NOT NULL,
   engine_id INTEGER     NOT NULL,
   FOREIGN KEY (engine_id) REFERENCES engines (id)
 );
