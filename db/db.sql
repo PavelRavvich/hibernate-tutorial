@@ -6,6 +6,8 @@ CREATE TABLE IF NOT EXISTS engines (
   power INTEGER     NOT NULL
 );
 
+INSERT INTO engines (model, power) VALUES ('model_test', 123);
+
 CREATE TABLE IF NOT EXISTS cars (
   id        SERIAL PRIMARY KEY,
   mark      VARCHAR(25) NOT NULL,
