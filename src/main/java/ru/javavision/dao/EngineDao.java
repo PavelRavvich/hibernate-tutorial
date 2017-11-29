@@ -1,8 +1,8 @@
 package ru.javavision.dao;
 
-import com.sun.istack.internal.NotNull;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.jetbrains.annotations.NotNull;
 import ru.javavision.model.Engine;
 
 import java.util.List;
