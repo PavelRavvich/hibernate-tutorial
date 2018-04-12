@@ -33,7 +33,7 @@ public class EngineDao implements DAO<Engine, Integer> {
 
     @Override
     public Engine read(Integer id) {
-        Engine result = new Engine();
+        Engine result;
 
         try (Session session = factory.openSession()) {
 
@@ -43,7 +43,7 @@ public class EngineDao implements DAO<Engine, Integer> {
 
             session.getTransaction().commit();
         }
-        return result;
+        return result != null ? result : new Engine();
     }
 
     @Override
@@ -67,15 +67,6 @@ public class EngineDao implements DAO<Engine, Integer> {
             session.delete(engine);
 
             session.getTransaction().commit();
-        }
-    }
-
-    private final static String GET_ALL = "from Engine";
-
-    @Override
-    public List<Engine> getAll() {
-        try (Session session = factory.openSession()) {
-            return session.createQuery(GET_ALL, Engine.class).list();
         }
     }
 }

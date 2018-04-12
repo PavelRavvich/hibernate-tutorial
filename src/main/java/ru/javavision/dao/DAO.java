@@ -7,5 +7,4 @@ public interface DAO<Entity, Key> {
     Entity read(Key key);
     void update(Entity entity);
     void delete(Entity entity);
-    List<Entity> getAll();
 }

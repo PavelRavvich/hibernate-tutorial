@@ -23,39 +23,51 @@ public class App {
 
             factory = new Configuration().configure().buildSessionFactory();
             DAO<Car, Integer> dao = new CarDAO(factory);
-//            final Car result = dao.read(1);
-//            System.out.println("Read: " + result);
-//
-//            result.setModel("car_model_03");
+            final Car result = dao.read(1);
+            System.out.println("Read: " + result);
+
+//            result.setModel("Mazda");
 //            result.getEngine().setPower(500);
+//            result.getEngine().setModel("Super engine");
 //            dao.update(result);
 //            System.out.println("Update: " + dao.read(1));
+//
+//            create(dao);
+//            System.out.println("Update: " + dao.read(2));
 
 
-            System.out.println();
-            System.out.println();
-            System.out.println();
+//            delete(dao);
 
             //dao.getAll().forEach(System.out::println);
 
-//            final Car car = new Car();
-//            car.setModel("test");
-//            car.setMark("test");
-//            final Engine engine = new Engine();
-//            engine.setPower(900);
-//            engine.setModel("test");
-//            car.setEngine(engine);
-//            dao.create(car);
-            final Car car = new Car();
-            final Engine engine = new Engine();
-            engine.setId(3);
-            car.setEngine(engine);
-            car.setId(3);
-            dao.delete(car);
         } finally {
             if (factory != null) {
                 factory.close();
             }
         }
+    }
+
+    private static void create(DAO<Car, Integer> carDao) {
+        Car car = new Car();
+        car.setModel("new model");
+        car.setMark("new mark");
+        Engine engine = new Engine();
+        engine.setModel("new engine");
+        engine.setPower(900);
+        car.setEngine(engine);
+        carDao.create(car);
+    }
+
+    private static void delete(DAO<Car, Integer> carDao) {
+        Car car = new Car();
+        car.setModel("new model");
+        car.setMark("new mark");
+        car.setId(2);
+        Engine engine = new Engine();
+        engine.setModel("new engine");
+        engine.setPower(900);
+        engine.setId(2);
+        car.setEngine(engine);
+        carDao.delete(car);
     }
 }

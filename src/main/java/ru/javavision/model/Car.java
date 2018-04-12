@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Created : 26/11/2017.
  */
 @Data
-public class Car implements Serializable {
+public class Car {
 
     private int id;
 

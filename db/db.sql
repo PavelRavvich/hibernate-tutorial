@@ -15,3 +15,5 @@ CREATE TABLE IF NOT EXISTS cars (
   engine_id INTEGER     NOT NULL,
   FOREIGN KEY (engine_id) REFERENCES engines (id)
 );
+
+INSERT INTO  cars (mark, model, engine_id) VALUES ('car_test', 'test_model', 1);

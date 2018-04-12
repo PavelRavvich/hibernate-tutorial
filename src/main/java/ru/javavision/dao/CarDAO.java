@@ -75,13 +75,4 @@ public class CarDAO implements DAO<Car, Integer> {
             session.getTransaction().commit();
         }
     }
-
-    private final static String GET_ALL_CARS = "select c from Car c join fetch c.engine where c.id > 0";
-
-    @Override
-    public List<Car> getAll() {
-        try (Session session = factory.openSession()) {
-            return session.createQuery(GET_ALL_CARS, Car.class).list();
-        }
-    }
 }
