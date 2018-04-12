@@ -1,12 +1,10 @@
 package ru.javavision.dao;
 
-import org.jetbrains.annotations.NotNull;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.jetbrains.annotations.NotNull;
 import ru.javavision.model.Car;
-
-import java.util.List;
 
 /**
  * Author : Pavel Ravvich.

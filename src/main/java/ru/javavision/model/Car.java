@@ -2,8 +2,6 @@ package ru.javavision.model;
 
 import lombok.Data;
 
-import java.io.Serializable;
-
 /**
  * Author : Pavel Ravvich.
  * Created : 26/11/2017.
