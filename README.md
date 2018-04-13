@@ -1,13 +1,3 @@
-# hibernate-tutorial
+# hibernate-tutorial lesson Configuration
 
-Структура базы.
-Конфигурирование.
-
-1. One to one.
-2. One to many.
-3. Many to one.
-4. Many to many.
-
-Тестирование:
-hsqldb
-jacoco
+Инструкция по конфигурированию Hibernate через XML YouTube: https://www.youtube.com/watch?v=Qt7HwPfwEKM&list=PL7Bt6mWpiiza3rrRXmMwWdsQFDlmF2bWQ
