@@ -2,4 +2,4 @@
 
 Пример использования Hibernate для связи типа Many To One.
 
-YouTube: https://www.youtube.com/watch?v=Qt7HwPfwEKM&list=PL7Bt6mWpiiza3rrRXmMwWdsQFDlmF2bWQ
+YouTube: https://www.youtube.com/watch?v=XcjE5dS21uE&list=PL7Bt6mWpiiza3rrRXmMwWdsQFDlmF2bWQ&index=2
