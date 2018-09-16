@@ -1,5 +1,6 @@
-# hibernate-tutorial lesson №2 Many To One
+# Hibernate
+## Lesson №3 One To Many  
 
-Пример использования Hibernate для связи типа Many To One.
+Пример использования Hibernate для связи типа One To Many.
 
-YouTube: https://www.youtube.com/watch?v=XcjE5dS21uE&list=PL7Bt6mWpiiza3rrRXmMwWdsQFDlmF2bWQ&index=2
+YouTube: https://youtu.be/R_j5mXF-Fe4
