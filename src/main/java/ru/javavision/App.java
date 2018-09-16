@@ -12,9 +12,7 @@ import java.util.Set;
 
 /**
  * Author : Pavel Ravvich.
- * Created : 26/11/2017.
- * <p>
- * App
+ * Created : 16/09/2018.
  */
 public class App {
 
@@ -38,7 +36,7 @@ public class App {
 
 //            delete(dao);
 
-            create(dao);
+//            create(dao);
 
         } finally {
             if (factory != null) {

@@ -22,10 +22,8 @@ public class EngineDAO implements DAO<Engine, Integer> {
     public void create(Engine engine) {
         try (Session session = factory.openSession()) {
 
-
             session.beginTransaction();
 
-//            engine.getCars().forEach(session::save);
             session.save(engine);
 
             session.getTransaction().commit();

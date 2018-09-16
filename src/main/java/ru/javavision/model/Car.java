@@ -17,5 +17,5 @@ public class Car {
 
     private String mark;
 
-    private int cost;
+    private Integer cost;
 }
