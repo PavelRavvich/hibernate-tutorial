@@ -9,7 +9,18 @@
         <id name = "id" type = "int" column = "id">
             <generator class="identity"/>
         </id>
-        <property name="model" column="model"/>
+        <property name="name" column="name"/>
         <property name="power" column="power"/>
+        <property name="carMark" column="car_mark"/>
+
+        <!--Прикрепляем машины к к двигателю.-->
+        <set name="cars" table="cars" cascade="all" fetch="join">
+            <!--
+            1. column="mark" относится к таблице cars.
+            2. property-ref="carMark" это имя переменной на полях класса Engine
+            -->
+            <key column="mark" property-ref="carMark"/>
+            <one-to-many class="ru.javavision.model.Car" />
+        </set>
     </class>
 </hibernate-mapping>

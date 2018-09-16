@@ -1,19 +1,21 @@
-CREATE DATABASE many_to_one_lesson ENCODING 'UTF-8';
+CREATE DATABASE one_to_many_lesson ENCODING 'UTF-8';
 
-CREATE TABLE IF NOT EXISTS engines (
-  id    SERIAL PRIMARY KEY,
-  model VARCHAR(25) NOT NULL,
-  power INTEGER     NOT NULL
-);
-
-INSERT INTO engines (model, power) VALUES ('model_test', 123);
 
 CREATE TABLE IF NOT EXISTS cars (
-  id        SERIAL PRIMARY KEY,
-  mark      VARCHAR(25) NOT NULL,
-  model     VARCHAR(25) NOT NULL,
-  engine_id INTEGER     NOT NULL,
-  FOREIGN KEY (engine_id) REFERENCES engines (id)
+  id    SERIAL PRIMARY KEY,
+  cost INTEGER,
+  mark  VARCHAR(25)
 );
 
-INSERT INTO  cars (mark, model, engine_id) VALUES ('car_test', 'test_model', 1);
+INSERT INTO cars (mark) VALUES ('ford');
+INSERT INTO cars (mark) VALUES ('ford');
+
+
+CREATE TABLE IF NOT EXISTS engines (
+  id       SERIAL PRIMARY KEY,
+  name    VARCHAR(25) NOT NULL,
+  power    INTEGER     NOT NULL,
+  car_mark VARCHAR(25) NOT NULL
+);
+
+INSERT INTO engines (name, power, car_mark) VALUES ('super-engine', 10000, 'ford');
