@@ -3,4 +3,4 @@
 
 Пример использования Hibernate для связи типа Many To Many.
 
-YouTube: https://youtu.be/R_j5mXF-Fe4
+YouTube: https://youtu.be/VQPoe2OVghQ

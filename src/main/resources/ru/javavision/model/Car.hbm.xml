@@ -13,7 +13,7 @@
         <property name="mark" column="mark"/>
 
         <!--Прикрепляем машины к к двигателям.-->
-        <set name="engines" table="cars_engines" lazy="true" fetch="join" cascade="all">
+        <set name="engines" table="cars_engines" lazy="true" fetch="join" cascade="none">
 
             <!-- Поле для маппинга со стороны Car к соединительной таблице -->
             <key>
@@ -21,7 +21,7 @@
             </key>
 
             <!-- Поле для маппинга со стороны Engine к соединительной таблице -->
-            <many-to-many class="ru.javavision.model.Car">
+            <many-to-many class="ru.javavision.model.Engine">
                 <column name="engine_id" not-null="true" />
             </many-to-many>
         </set>

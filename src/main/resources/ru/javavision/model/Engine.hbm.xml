@@ -13,7 +13,7 @@
         <property name="power" column="power"/>
 
         <!--Прикрепляем машины к к двигателям.-->
-        <set name="cars" table="cars_engines"  lazy="true" fetch="join">
+        <set name="cars" table="cars_engines"  lazy="true" fetch="join" cascade="none">
 
             <!-- Поле для маппинга со стороны Engine -->
             <key>

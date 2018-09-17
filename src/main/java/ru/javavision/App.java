@@ -33,9 +33,9 @@ public class App {
              * Убедитесь что данные для методов create update и delete существуют.
              */
 
-//            readEngine(engineDao);
+            readEngine(engineDao);
 
-            readCar(carDao);
+//            readCar(carDao);
 
         } finally {
             if (factory != null) {
@@ -49,8 +49,8 @@ public class App {
         System.out.println("Read: " + result);
     }
 
-    private static void readCar(DAO<Car, Integer> engineDao) {
-        final Car result = engineDao.read(1);
+    private static void readCar(DAO<Car, Integer> carDao) {
+        final Car result = carDao.read(1);
         System.out.println("Read: " + result);
     }
 
