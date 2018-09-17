@@ -10,20 +10,24 @@ import java.util.Set;
  * Author : Pavel Ravvich.
  * Created : 26/11/2017.
  */
-@Data
-@ToString
-@EqualsAndHashCode
 @NoArgsConstructor
-@AllArgsConstructor
+@EqualsAndHashCode(exclude = "cars")
 public class Engine {
 
+    @Getter
+    @Setter
     private int id;
 
+    @Getter
+    @Setter
     private String name;
 
+    @Getter
+    @Setter
     private int power;
 
-    private String carMark;
-
+    @Getter
+    @Setter
     private Set<Car> cars;
+
 }

@@ -11,16 +11,19 @@
         </id>
         <property name="name" column="name"/>
         <property name="power" column="power"/>
-        <property name="carMark" column="car_mark"/>
 
-        <!--Прикрепляем машины к к двигателю.-->
-        <set name="cars" table="cars" cascade="all" fetch="join">
-            <!--
-            1. column="mark" относится к таблице cars.
-            2. property-ref="carMark" это имя переменной на полях класса Engine
-            -->
-            <key column="mark" property-ref="carMark"/>
-            <one-to-many class="ru.javavision.model.Car" />
+        <!--Прикрепляем машины к к двигателям.-->
+        <set name="cars" table="cars_engines"  lazy="true" fetch="join">
+
+            <!-- Поле для маппинга со стороны Engine -->
+            <key>
+                <column name="engine_id" not-null="true" />
+            </key>
+
+            <!-- Поле для маппинга со стороны Car -->
+            <many-to-many class="ru.javavision.model.Car">
+                <column name="car_id" not-null="true" />
+            </many-to-many>
         </set>
     </class>
 </hibernate-mapping>
